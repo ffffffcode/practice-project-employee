@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>ex.aaronfae</groupId>
-    <artifactId>ssm-tutorial-quickstart</artifactId>
+    <artifactId>practice-project-employee</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>war</packaging>
     <properties>
@@ -77,7 +77,7 @@
         </dependency>
     </dependencies>
     <build>
-        <finalName>ssm-tutorial-quickstart</finalName>
+        <finalName>practice-project-employee</finalName>
         <resources>
             <resource>
                 <directory>src/main/resources</directory>
