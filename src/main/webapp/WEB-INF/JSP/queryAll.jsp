@@ -49,9 +49,8 @@
                         <td>${employee.tel}</td>
                         <td>${employee.department.name}</td>
                         <td>
-                            <button class="btn btn-primary btn-sm edit_btn">
-                                <span class="glyphicon glyphicon-pencil"></span>
-                            </button>
+                            <a class="btn btn-primary btn-sm edit_btn" href="/editEmployee?e_id=${employee.id}"><span
+                                    class="glyphicon glyphicon-pencil"></span></a>
                             <button class="btn btn-danger btn-sm delete_btn">
                                 <span class="glyphicon glyphicon-trash"></span>
                             </button>

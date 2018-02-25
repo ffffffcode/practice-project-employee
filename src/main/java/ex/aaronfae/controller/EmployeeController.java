@@ -4,12 +4,12 @@ import ex.aaronfae.entity.Employee;
 import ex.aaronfae.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
-import java.util.Map;
 
 @Controller
 public class EmployeeController {
@@ -20,7 +20,7 @@ public class EmployeeController {
     /**
      * 查询所有员工信息
      *
-     * @return 返回带员工信息的ModelAndView
+     * @return 返回带员工信息的ArrayList
      */
     /*@RequestMapping("/queryAll")
     public ModelAndView queryAll() {
@@ -85,4 +85,11 @@ public class EmployeeController {
     public void getList(Model model) {
         model.addAttribute("list", employeeService.queryAll());
     }*/
+
+    @RequestMapping("/editEmployee")
+    public ModelAndView editEmployee(Integer e_id) {
+        ModelAndView modelAndView = new ModelAndView("editEmployee");
+        modelAndView.addObject("id", e_id);
+        return modelAndView;
+    }
 }
