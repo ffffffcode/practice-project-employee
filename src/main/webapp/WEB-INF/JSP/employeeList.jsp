@@ -5,11 +5,11 @@
   Time: 18:50
   To change this template use File | Settings | File Templates.
 --%>
-<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
-    <link rel="stylesheet" href="<%request.getContextPath();%>/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/bootstrap-3.3.7-dist/css/bootstrap.min.css">
     <title>员工管理</title>
 </head>
 <body>
@@ -23,7 +23,7 @@
     <!-- 显示表格数据 -->
     <div class="row">
         <div class="col-md-12">
-            <table class="table table-hover" id="emps_table">
+            <table class="table table-hover">
                 <thead>
                 <tr>
                     <th>
@@ -42,18 +42,21 @@
                 <c:forEach items="${employeeList}" var="employee">
                     <tr>
                         <td><input type='checkbox' class='check_item'/></td>
-                        <td>${employee.id}</td>
-                        <td>${employee.name}</td>
-                        <td>${employee.gender}</td>
-                        <td>${employee.email}</td>
-                        <td>${employee.tel}</td>
-                        <td>${employee.department.name}</td>
+                        <td>${employee.eId}</td>
+                        <td>${employee.eName}</td>
+                        <td>${employee.eGender}</td>
+                        <td>${employee.eEmail}</td>
+                        <td>${employee.eTel}</td>
+                        <td>${employee.dId}</td>
                         <td>
-                            <a class="btn btn-primary btn-sm edit_btn" href="/editEmployee?e_id=${employee.id}"><span
-                                    class="glyphicon glyphicon-pencil"></span></a>
-                            <button class="btn btn-danger btn-sm delete_btn">
-                                <span class="glyphicon glyphicon-trash"></span>
-                            </button>
+                            <form action="/editEmployee" method="post">
+                                <button class="btn btn-primary btn-sm edit_btn" name="e_id" value="${employee.eId}">
+                                    <span class="glyphicon glyphicon-pencil"></span>
+                                </button>
+                                <button class="btn btn-danger btn-sm delete_btn">
+                                    <span class="glyphicon glyphicon-trash"></span>
+                                </button>
+                            </form>
                         </td>
                     </tr>
                 </c:forEach>

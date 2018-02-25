@@ -1,59 +1,63 @@
 package ex.aaronfae.entity;
 
 public class Employee {
-    private int id;
-    private String name;
-    private String gender;
-    private String email;
-    private String tel;
-    private Department department;
+    private Integer eId;
 
-    public int getId() {
-        return id;
+    private String eName;
+
+    private String eGender;
+
+    private String eEmail;
+
+    private String eTel;
+
+    private Integer dId;
+
+    public Integer geteId() {
+        return eId;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void seteId(Integer eId) {
+        this.eId = eId;
     }
 
-    public String getName() {
-        return name;
+    public String geteName() {
+        return eName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void seteName(String eName) {
+        this.eName = eName == null ? null : eName.trim();
     }
 
-    public String getGender() {
-        return gender;
+    public String geteGender() {
+        return eGender;
     }
 
-    public void setGender(String gender) {
-        this.gender = gender;
+    public void seteGender(String eGender) {
+        this.eGender = eGender == null ? null : eGender.trim();
     }
 
-    public String getEmail() {
-        return email;
+    public String geteEmail() {
+        return eEmail;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void seteEmail(String eEmail) {
+        this.eEmail = eEmail == null ? null : eEmail.trim();
     }
 
-    public String getTel() {
-        return tel;
+    public String geteTel() {
+        return eTel;
     }
 
-    public void setTel(String tel) {
-        this.tel = tel;
+    public void seteTel(String eTel) {
+        this.eTel = eTel == null ? null : eTel.trim();
     }
 
-    public Department getDepartment() {
-        return department;
+    public Integer getdId() {
+        return dId;
     }
 
-    public void setDepartment(Department department) {
-        this.department = department;
+    public void setdId(Integer dId) {
+        this.dId = dId;
     }
-
 }

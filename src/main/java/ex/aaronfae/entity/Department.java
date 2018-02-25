@@ -1,33 +1,23 @@
 package ex.aaronfae.entity;
 
 public class Department {
-    private int id;
-    private String name;
+    private Integer dId;
 
-    public Department(int id, String name) {
-        super();
-        this.id = id;
-        this.name = name;
+    private String dName;
+
+    public Integer getdId() {
+        return dId;
     }
 
-    public Department() {
-        super();
+    public void setdId(Integer dId) {
+        this.dId = dId;
     }
 
-    public int getId() {
-        return id;
+    public String getdName() {
+        return dName;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setdName(String dName) {
+        this.dName = dName == null ? null : dName.trim();
     }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
 }

@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
@@ -47,7 +46,7 @@ public class EmployeeController {
         List<Employee> list = employeeService.queryAll();
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.addObject("list", list);
-        View view = new InternalResourceView("/WEB-INF/JSP/queryAll.jsp");
+        View view = new InternalResourceView("/WEB-INF/JSP/employeeList.jsp");
         modelAndView.setView(view);
         return modelAndView;
     }*/
@@ -64,16 +63,16 @@ public class EmployeeController {
         ModelAndView modelAndView = new ModelAndView("queryAll", "list", list);
         return modelAndView;
     }*/
-    @RequestMapping("/queryAll")
-    public String queryAll() {
-        return "queryAll";
+    @RequestMapping("/employeeList")
+    public String employeeList() {
+        return "employeeList";
     }
 
     /*添加@ModelAttribute注解的方法，会在SpringMVC在调用任何一个业务方法之前被自动调用
     此时传向前端页面的key为employeeList*/
     @ModelAttribute
     public List<Employee> getList() {
-        return employeeService.queryAll();
+        return employeeService.employeeList();
     }
 
     /*@ModelAttribute
@@ -89,7 +88,7 @@ public class EmployeeController {
     @RequestMapping("/editEmployee")
     public ModelAndView editEmployee(Integer e_id) {
         ModelAndView modelAndView = new ModelAndView("editEmployee");
-        modelAndView.addObject("id", e_id);
+        modelAndView.addObject("emp", employeeService.editEmployee(e_id));
         return modelAndView;
     }
 }

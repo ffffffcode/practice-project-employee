@@ -5,5 +5,8 @@ import ex.aaronfae.entity.Employee;
 import java.util.List;
 
 public interface EmployeeService {
-    List<Employee> queryAll();
+
+    List<Employee> employeeList();
+
+    Employee editEmployee(Integer e_id);
 }
