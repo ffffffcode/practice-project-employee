@@ -39,7 +39,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                <c:forEach items="${list}" var="employee">
+                <c:forEach items="${employeeList}" var="employee">
                     <tr>
                         <td><input type='checkbox' class='check_item'/></td>
                         <td>${employee.id}</td>
