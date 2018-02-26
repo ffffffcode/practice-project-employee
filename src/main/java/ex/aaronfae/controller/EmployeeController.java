@@ -88,14 +88,14 @@ public class EmployeeController {
     @RequestMapping("/editEmployee")
     public ModelAndView editEmployee(Integer e_id) {
         ModelAndView modelAndView = new ModelAndView("editEmployee");
-        modelAndView.addObject("emp", employeeService.editEmployee(e_id));
+        modelAndView.addObject("employee", employeeService.editEmployee(e_id));
         return modelAndView;
     }
 
     @RequestMapping("/employeeInfo")
     public ModelAndView selectAll() {
-        ModelAndView modelAndView = new ModelAndView("employeeInfo");
-        modelAndView.addObject("list", employeeService.selectAllEmployee());
+        ModelAndView modelAndView = new ModelAndView("employeeList");
+        modelAndView.addObject("employeeList", employeeService.selectAllEmployee());
         return modelAndView;
     }
 }

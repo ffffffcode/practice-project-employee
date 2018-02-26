@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="ex.aaronfae.dao.EmployeeMapper">
+    <resultMap id="selectAllMap" type="ex.aaronfae.entity.Employee">
+        <id column="e_id" jdbcType="INTEGER" property="eId"/>
+        <result column="e_name" jdbcType="VARCHAR" property="eName"/>
+        <result column="e_gender" jdbcType="VARCHAR" property="eGender"/>
+        <result column="e_email" jdbcType="VARCHAR" property="eEmail"/>
+        <result column="e_tel" jdbcType="VARCHAR" property="eTel"/>
+        <result column="d_id" jdbcType="INTEGER" property="dId"/>
+        <result column="d_name" jdbcType="VARCHAR" property="dName"/>
+    </resultMap>
+    <select id="selectAllEmployee" resultMap="selectAllMap">
+        SELECT * FROM department d LEFT JOIN employee e ON d.d_id = e.d_id
+    </select>
+
     <resultMap id="BaseResultMap" type="ex.aaronfae.entity.Employee">
         <id column="e_id" jdbcType="INTEGER" property="eId"/>
         <result column="e_name" jdbcType="VARCHAR" property="eName"/>
@@ -8,6 +21,7 @@
         <result column="e_email" jdbcType="VARCHAR" property="eEmail"/>
         <result column="e_tel" jdbcType="VARCHAR" property="eTel"/>
         <result column="d_id" jdbcType="INTEGER" property="dId"/>
+        <result column="d_name" jdbcType="VARCHAR" property="dName"/>
     </resultMap>
     <sql id="Example_Where_Clause">
         <where>
@@ -87,10 +101,11 @@
         </if>
     </select>
     <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-        select
-        <include refid="Base_Column_List"/>
-        from employee
-        where e_id = #{eId,jdbcType=INTEGER}
+        <!--select-->
+        <!--<include refid="Base_Column_List"/>-->
+        <!--from employee-->
+        <!--where e_id = #{eId,jdbcType=INTEGER}-->
+        SELECT * FROM department d ,employee e where e_id = 1 AND d.d_id = #{eId,jdbcType=INTEGER}
     </select>
     <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from employee

@@ -13,6 +13,8 @@ public class Employee {
 
     private Integer dId;
 
+    private String dName;
+
     public Integer geteId() {
         return eId;
     }
@@ -59,5 +61,13 @@ public class Employee {
 
     public void setdId(Integer dId) {
         this.dId = dId;
+    }
+
+    public String getdName() {
+        return dName;
+    }
+
+    public void setdName(String dName) {
+        this.dName = dName == null ? null : dName.trim();
     }
 }

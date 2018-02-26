@@ -2,7 +2,6 @@ package ex.aaronfae.service;
 
 import ex.aaronfae.dao.DepartmentMapper;
 import ex.aaronfae.dao.EmployeeMapper;
-import ex.aaronfae.entity.Department;
 import ex.aaronfae.entity.Employee;
 import ex.aaronfae.entity.EmployeeExample;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,8 +19,9 @@ public class EmplyeeServiceImpl implements EmployeeService {
     private DepartmentMapper departmentMapper;
 
     @Override
-    public List<Department> selectAllEmployee() {
-        return departmentMapper.selectAllEmployee();
+    public List<Employee> selectAllEmployee() {
+        List<Employee> list = employeeMapper.selectAllEmployee();
+        return list;
     }
 
     public List<Employee> employeeList() {

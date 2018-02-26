@@ -47,7 +47,7 @@
                         <td>${employee.eGender}</td>
                         <td>${employee.eEmail}</td>
                         <td>${employee.eTel}</td>
-                        <td>${employee.dId}</td>
+                        <td>${employee.dName}</td>
                         <td>
                             <form action="/editEmployee" method="post">
                                 <button class="btn btn-primary btn-sm edit_btn" name="e_id" value="${employee.eId}">
