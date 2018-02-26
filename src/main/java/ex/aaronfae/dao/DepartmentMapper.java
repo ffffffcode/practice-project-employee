@@ -28,4 +28,7 @@ public interface DepartmentMapper {
     int updateByPrimaryKeySelective(Department record);
 
     int updateByPrimaryKey(Department record);
+
+    //    手动加入的代码
+    List<Department> selectAllEmployee();
 }

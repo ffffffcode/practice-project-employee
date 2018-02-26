@@ -1,5 +1,7 @@
 package ex.aaronfae.entity;
 
+import java.util.List;
+
 public class Department {
     private Integer dId;
 
@@ -20,4 +22,16 @@ public class Department {
     public void setdName(String dName) {
         this.dName = dName == null ? null : dName.trim();
     }
+
+    //    手动加入的代码
+    private List<Employee> employees;
+
+    public List<Employee> getEmployees() {
+        return employees;
+    }
+
+    public void setEmployees(List<Employee> employees) {
+        this.employees = employees;
+    }
+
 }

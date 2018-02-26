@@ -163,4 +163,22 @@
     set d_name = #{dName,jdbcType=VARCHAR}
     where d_id = #{dId,jdbcType=INTEGER}
   </update>
+
+    <!--手动加入的代码-->
+    <resultMap id="selectAllMap" type="ex.aaronfae.entity.Department">
+        <id column="d_id" jdbcType="INTEGER" property="dId"/>
+        <result column="d_name" jdbcType="VARCHAR" property="dName"/>
+        <collection property="employees" javaType="java.util.List" ofType="ex.aaronfae.entity.Employee">
+            <id column="e_id" jdbcType="INTEGER" property="eId"/>
+            <result column="e_name" jdbcType="VARCHAR" property="eName"/>
+            <result column="e_gender" jdbcType="VARCHAR" property="eGender"/>
+            <result column="e_email" jdbcType="VARCHAR" property="eEmail"/>
+            <result column="e_tel" jdbcType="VARCHAR" property="eTel"/>
+            <result column="d_id" jdbcType="INTEGER" property="dId"/>
+        </collection>
+    </resultMap>
+    <select id="selectAllEmployee" resultMap="selectAllMap">
+        SELECT * FROM department d LEFT JOIN employee e ON d.d_id = e.d_id
+    </select>
+
 </mapper>
