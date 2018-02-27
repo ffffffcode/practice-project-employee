@@ -1,6 +1,5 @@
 package ex.aaronfae.service;
 
-import ex.aaronfae.dao.DepartmentMapper;
 import ex.aaronfae.dao.EmployeeMapper;
 import ex.aaronfae.entity.Employee;
 import ex.aaronfae.entity.EmployeeExample;
@@ -14,9 +13,6 @@ public class EmplyeeServiceImpl implements EmployeeService {
 
     @Autowired
     private EmployeeMapper employeeMapper;
-
-    @Autowired
-    private DepartmentMapper departmentMapper;
 
     @Override
     public List<Employee> selectAllEmployee() {

@@ -105,7 +105,7 @@
         <!--<include refid="Base_Column_List"/>-->
         <!--from employee-->
         <!--where e_id = #{eId,jdbcType=INTEGER}-->
-        SELECT * FROM department d ,employee e where e_id = 1 AND d.d_id = #{eId,jdbcType=INTEGER}
+        SELECT * FROM department d LEFT JOIN employee e ON d.d_id = e.d_id where e_id = #{eId,jdbcType=INTEGER}
     </select>
     <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from employee

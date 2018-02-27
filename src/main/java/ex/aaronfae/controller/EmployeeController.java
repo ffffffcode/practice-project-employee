@@ -5,9 +5,14 @@ import ex.aaronfae.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 import java.util.List;
 
 @Controller
@@ -85,11 +90,24 @@ public class EmployeeController {
         model.addAttribute("list", employeeService.queryAll());
     }*/
 
-    @RequestMapping("/editEmployee")
+    /*@RequestMapping("/editEmployee")
     public ModelAndView editEmployee(Integer e_id) {
         ModelAndView modelAndView = new ModelAndView("editEmployee");
         modelAndView.addObject("employee", employeeService.editEmployee(e_id));
         return modelAndView;
+    }*/
+
+    @RequestMapping(value = "/editEmployee/{e_id}", method = RequestMethod.GET)
+    public String editEmployee(@PathVariable("e_id") Integer e_id, HttpServletRequest request, HttpServletResponse response) {
+        if (employeeService.editEmployee(e_id) == null) {
+            try {
+                response.sendRedirect("/employeeInfo");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        request.setAttribute("employee", employeeService.editEmployee(e_id));
+        return "editEmployee";
     }
 
     @RequestMapping("/employeeInfo")
