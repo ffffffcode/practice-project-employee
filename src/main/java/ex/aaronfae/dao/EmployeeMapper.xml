@@ -84,8 +84,8 @@
         </where>
     </sql>
     <sql id="Base_Column_List">
-    e_id, e_name, e_gender, e_email, e_tel, d_id
-  </sql>
+        e_id, e_name, e_gender, e_email, e_tel, d_id
+    </sql>
     <select id="selectByExample" parameterType="ex.aaronfae.entity.EmployeeExample" resultMap="BaseResultMap">
         select
         <if test="distinct">
@@ -108,9 +108,9 @@
         SELECT * FROM department d LEFT JOIN employee e ON d.d_id = e.d_id where e_id = #{eId,jdbcType=INTEGER}
     </select>
     <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from employee
-    where e_id = #{eId,jdbcType=INTEGER}
-  </delete>
+        delete from employee
+        where e_id = #{eId,jdbcType=INTEGER}
+    </delete>
     <delete id="deleteByExample" parameterType="ex.aaronfae.entity.EmployeeExample">
         delete from employee
         <if test="_parameter != null">
@@ -118,11 +118,11 @@
         </if>
     </delete>
     <insert id="insert" parameterType="ex.aaronfae.entity.Employee">
-    insert into employee (e_id, e_name, e_gender, 
-      e_email, e_tel, d_id)
-    values (#{eId,jdbcType=INTEGER}, #{eName,jdbcType=VARCHAR}, #{eGender,jdbcType=VARCHAR}, 
-      #{eEmail,jdbcType=VARCHAR}, #{eTel,jdbcType=VARCHAR}, #{dId,jdbcType=INTEGER})
-  </insert>
+        insert into employee (e_id, e_name, e_gender,
+        e_email, e_tel, d_id)
+        values (#{eId,jdbcType=INTEGER}, #{eName,jdbcType=VARCHAR}, #{eGender,jdbcType=VARCHAR},
+        #{eEmail,jdbcType=VARCHAR}, #{eTel,jdbcType=VARCHAR}, #{dId,jdbcType=INTEGER})
+    </insert>
     <insert id="insertSelective" parameterType="ex.aaronfae.entity.Employee">
         insert into employee
         <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -232,12 +232,12 @@
         where e_id = #{eId,jdbcType=INTEGER}
     </update>
     <update id="updateByPrimaryKey" parameterType="ex.aaronfae.entity.Employee">
-    update employee
-    set e_name = #{eName,jdbcType=VARCHAR},
-      e_gender = #{eGender,jdbcType=VARCHAR},
-      e_email = #{eEmail,jdbcType=VARCHAR},
-      e_tel = #{eTel,jdbcType=VARCHAR},
-      d_id = #{dId,jdbcType=INTEGER}
-    where e_id = #{eId,jdbcType=INTEGER}
-  </update>
+        update employee
+        set e_name = #{eName,jdbcType=VARCHAR},
+        e_gender = #{eGender,jdbcType=VARCHAR},
+        e_email = #{eEmail,jdbcType=VARCHAR},
+        e_tel = #{eTel,jdbcType=VARCHAR},
+        d_id = #{dId,jdbcType=INTEGER}
+        where e_id = #{eId,jdbcType=INTEGER}
+    </update>
 </mapper>

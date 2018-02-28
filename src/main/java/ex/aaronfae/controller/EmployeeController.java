@@ -1,10 +1,8 @@
 package ex.aaronfae.controller;
 
-import ex.aaronfae.entity.Employee;
 import ex.aaronfae.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -13,7 +11,6 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.List;
 
 @Controller
 public class EmployeeController {
@@ -38,18 +35,21 @@ public class EmployeeController {
         modelAndView.addObject("list", list);
         return modelAndView;
     }*/
+
     /*@RequestMapping("/queryAll")
     public String queryAll(Model model) {
         List<Employee> list = employeeService.queryAll();
         model.addAttribute("list", list);
         return "queryAll";
     }*/
+
     /*@RequestMapping("/queryAll")
     public String queryAll(Map<String, List<Employee>> map) {
         List<Employee> list = employeeService.queryAll();
         map.put("list", list);
         return "queryAll";
     }*/
+
     /*@RequestMapping("/queryAll")
     public ModelAndView queryAll() {
         List<Employee> list = employeeService.queryAll();
@@ -59,6 +59,7 @@ public class EmployeeController {
         modelAndView.setView(view);
         return modelAndView;
     }*/
+
     /*@RequestMapping("/queryAll")
     public ModelAndView queryAll() {
         List<Employee> list = employeeService.queryAll();
@@ -66,23 +67,25 @@ public class EmployeeController {
         modelAndView.addObject("list", list);
         return modelAndView;
     }*/
+
     /*@RequestMapping("/queryAll")
     public ModelAndView queryAll() {
         List<Employee> list = employeeService.queryAll();
         ModelAndView modelAndView = new ModelAndView("queryAll", "list", list);
         return modelAndView;
     }*/
-    @RequestMapping("/employeeList")
+
+    /*@RequestMapping("/employeeList")
     public String employeeList() {
         return "employeeList";
     }
 
-    /*添加@ModelAttribute注解的方法，会在SpringMVC在调用任何一个业务方法之前被自动调用
-    此时传向前端页面的key为employeeList*/
+    *//*添加@ModelAttribute注解的方法，会在SpringMVC在调用任何一个业务方法之前被自动调用
+    此时传向前端页面的key为employeeList*//*
     @ModelAttribute
     public List<Employee> getList() {
         return employeeService.employeeList();
-    }
+    }*/
 
     /*@ModelAttribute
     public void getList(Map<String, List<Employee>> map) {
@@ -93,6 +96,12 @@ public class EmployeeController {
     public void getList(Model model) {
         model.addAttribute("list", employeeService.queryAll());
     }*/
+    @RequestMapping("/employeeList")
+    public ModelAndView employeeList() {
+        ModelAndView modelAndView = new ModelAndView("employeeList");
+        modelAndView.addObject("employeeList", employeeService.selectAllEmployee());
+        return modelAndView;
+    }
 
     /*@RequestMapping("/editEmployee")
     public ModelAndView editEmployee(Integer e_id) {
@@ -100,12 +109,11 @@ public class EmployeeController {
         modelAndView.addObject("employee", employeeService.editEmployee(e_id));
         return modelAndView;
     }*/
-
     @RequestMapping(value = "/editEmployee/{e_id}", method = RequestMethod.GET)
     public String editEmployee(@PathVariable("e_id") Integer e_id, HttpServletRequest request, HttpServletResponse response) {
         if (employeeService.editEmployee(e_id) == null) {
             try {
-                response.sendRedirect("/employeeInfo");
+                response.sendRedirect("/employeeList");
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -114,10 +122,10 @@ public class EmployeeController {
         return "editEmployee";
     }
 
-    @RequestMapping("/employeeInfo")
+    /*@RequestMapping("/employeeInfo")
     public ModelAndView selectAll() {
         ModelAndView modelAndView = new ModelAndView("employeeList");
         modelAndView.addObject("employeeList", employeeService.selectAllEmployee());
         return modelAndView;
-    }
+    }*/
 }

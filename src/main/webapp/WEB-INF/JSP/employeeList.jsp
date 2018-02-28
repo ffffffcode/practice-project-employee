@@ -49,7 +49,7 @@
                         <td>${employee.eTel}</td>
                         <td>${employee.dName}</td>
                         <td>
-                            <a class="btn btn-primary btn-sm" href="/editEmployee/${employee.eId}">
+                            <a class="btn btn-primary btn-sm" href="/editEmployee/${employee.eId}" target="_blank">
                                 <span class="glyphicon glyphicon-pencil"></span></a>
                             <button class="btn btn-danger btn-sm">
                                 <span class="glyphicon glyphicon-trash"></span>
