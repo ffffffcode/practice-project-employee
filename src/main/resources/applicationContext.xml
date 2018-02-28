@@ -60,7 +60,7 @@
         <tx:attributes>
             <!-- 所有方法都是事务方法 -->
             <tx:method name="*"/>
-            <!-- 以get开始的所有方法  -->
+            <!-- 以get开始的所有方法 为只读 -->
             <tx:method name="get*" read-only="true"/>
         </tx:attributes>
     </tx:advice>

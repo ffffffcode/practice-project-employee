@@ -11,8 +11,12 @@ import java.util.List;
 @Service
 public class EmplyeeServiceImpl implements EmployeeService {
 
+    private final EmployeeMapper employeeMapper;
+
     @Autowired
-    private EmployeeMapper employeeMapper;
+    public EmplyeeServiceImpl(EmployeeMapper employeeMapper) {
+        this.employeeMapper = employeeMapper;
+    }
 
     @Override
     public List<Employee> selectAllEmployee() {
