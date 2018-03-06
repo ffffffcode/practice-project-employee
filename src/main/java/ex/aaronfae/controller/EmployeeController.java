@@ -1,5 +1,6 @@
 package ex.aaronfae.controller;
 
+import ex.aaronfae.entity.Employee;
 import ex.aaronfae.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -99,7 +100,7 @@ public class EmployeeController {
     @RequestMapping("/employeeList")
     public ModelAndView employeeList() {
         ModelAndView modelAndView = new ModelAndView("employeeList");
-        modelAndView.addObject("employeeList", employeeService.selectAllEmployee());
+        modelAndView.addObject("employeeList", employeeService.listEmployee());
         return modelAndView;
     }
 
@@ -128,4 +129,22 @@ public class EmployeeController {
         modelAndView.addObject("employeeList", employeeService.selectAllEmployee());
         return modelAndView;
     }*/
+
+    @RequestMapping("/updateEmployee")
+    public String updateEmployee(Employee employee) {
+
+        switch (employee.getdName()) {
+            case "研发部":
+                employee.setdId(new Integer(1));
+                break;
+            case "销售部":
+                employee.setdId(new Integer(2));
+                break;
+            case "行政部":
+                employee.setdId(new Integer(3));
+                break;
+        }
+        employeeService.updateEmployee(employee);
+        return "redirect:/employeeList";
+    }
 }

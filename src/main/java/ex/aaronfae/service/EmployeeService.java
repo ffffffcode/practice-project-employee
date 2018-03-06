@@ -6,9 +6,9 @@ import java.util.List;
 
 public interface EmployeeService {
 
-    List<Employee> selectAllEmployee();
-
-    List<Employee> employeeList();
+    List<Employee> listEmployee();
 
     Employee editEmployee(Integer e_id);
+
+    int updateEmployee(Employee record);
 }

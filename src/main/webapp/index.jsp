@@ -21,7 +21,7 @@
     </div>
     <div class="row">
         <div class="col-md-6">
-            <a class="btn btn-info btn-sm" href="/employeeList">员工列表</a>
+            <a class="btn btn-info btn-sm" href="<%request.getContextPath();%>/employeeList">员工列表</a>
         </div>
     </div>
 </div>
